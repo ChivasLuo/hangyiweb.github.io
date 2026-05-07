@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>航翼中队开放网站hangyiweb.github.io</title>
+<style>
+    /* 纯样式增强 - 未改动任何HTML标签、顺序、属性及文本内容 */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background: linear-gradient(135deg, #f5f7fc 0%, #e9eef4 100%);
+        font-family: system-ui, 'Segoe UI', 'Roboto', 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+        line-height: 1.5;
+        padding: 2.5rem 1.5rem;
+        color: #1a2c3e;
+    }
+
+    /* 优雅容器 – 仅增加视觉包裹层，完全保留原始body内结构顺序 */
+    body > * {
+        max-width: 880px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* 为所有直接子元素添加柔和卡片风格 (不改变任何标签语义) */
+    h1, p, audio, h2, .audio-wrapper {
+        transition: all 0.2s ease;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        background: linear-gradient(120deg, #1f5e7e, #0f3b4f);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        margin-top: 0.2rem;
+        margin-bottom: 1.2rem;
+        font-weight: 700;
+        letter-spacing: -0.3px;
+        border-left: 5px solid #2c8dad;
+        padding-left: 1.2rem;
+        text-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    }
+
+    /* 统一段落样式 */
+    p {
+        font-size: 1.05rem;
+        margin-bottom: 1rem;
+        color: #1f3e4b;
+        background: rgba(255,255,245,0.6);
+        padding: 0.6rem 1rem;
+        border-radius: 1.2rem;
+        backdrop-filter: blur(2px);
+        line-height: 1.5;
+    }
+
+    /* 使“航翼中队介绍”与描述段落具有优雅层次感 */
+    p:first-of-type {
+        font-weight: 600;
+        color: #1e6f5c;
+        background: #e2f0f5;
+        border-left: 4px solid #2c8dad;
+        border-radius: 1rem;
+    }
+
+    /* 第二个段落 [这是航翼中队的介绍] 给予柔和背景区分 */
+    p:nth-of-type(2) {
+        background: #ffffffcc;
+        border: 1px solid #d4e2ed;
+        color: #0c4e6e;
+        font-style: normal;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    /* 第三个段落 "航翼中队队歌" 与音频呼应 */
+    p:nth-of-type(3) {
+        font-weight: 500;
+        background: #eef3fc;
+        margin-bottom: 0.5rem;
+        display: inline-block;
+        width: auto;
+        border-radius: 2rem;
+        padding: 0.4rem 1.2rem;
+        color: #1a6885;
+        backdrop-filter: none;
+    }
+
+    /* 音频控件美化 - 保持原生控件但增强视觉融合 */
+    audio {
+        display: block;
+        margin: 0.75rem 0 1.8rem 0;
+        width: 100%;
+        max-width: 500px;
+        border-radius: 40px;
+        background: #f0f4f9;
+        padding: 0.2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    /* h2 一脉剧社 */
+    h2 {
+        font-size: 1.8rem;
+        margin: 1.8rem 0 0.5rem 0;
+        font-weight: 650;
+        color: #245b6e;
+        border-bottom: 3px dashed #9bc6db;
+        display: inline-block;
+        padding-bottom: 0.2rem;
+        letter-spacing: -0.2px;
+        background: none;
+        padding-left: 0;
+    }
+
+    /* 剧社描述段落 保持原文本 */
+    p:nth-of-type(4) {
+        background: #fefce8;
+        border-left: 4px solid #b8c9b0;
+        color: #3d5a3c;
+        margin-bottom: 1rem;
+    }
+
+    /* 链接段落 完全保留<a>标签内容与href */
+    p:last-of-type {
+        background: transparent;
+        padding: 0;
+        margin-top: 1rem;
+        margin-bottom: 0;
+        backdrop-filter: none;
+    }
+
+    a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #2c7da0;
+        color: white;
+        text-decoration: none;
+        padding: 0.7rem 1.6rem;
+        border-radius: 50px;
+        font-weight: 500;
+        transition: all 0.25s;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(255,255,240,0.3);
+    }
+
+    a:hover {
+        background: #1f5e7e;
+        transform: translateY(-2px);
+        box-shadow: 0 12px 18px -8px rgba(0, 0, 0, 0.2);
+        color: #fff9e0;
+    }
+
+    /* 针对移动端微调呼吸空间 */
+    @media (max-width: 640px) {
+        body {
+            padding: 1.5rem 1rem;
+        }
+        h1 {
+            font-size: 1.8rem;
+        }
+        h2 {
+            font-size: 1.5rem;
+        }
+        p {
+            padding: 0.6rem 0.9rem;
+        }
+    }
+
+    /* 保留audio原生控件圆角现代风格 */
+    audio::-webkit-media-controls-panel {
+        background-color: #eef2f7;
+    }
+    audio::-webkit-media-controls-play-button {
+        background-color: #2c7da0;
+        border-radius: 50%;
+    }
+
+    /* 不改变任何标签层次与文本内容 — 完全符合原结构 */
+</style>
+</head>
+<body>
+    <h1>欢迎来到航翼中队开放网站</h1>
+    <p>航翼中队介绍</p>
+    <p>[这是航翼中队的介绍]</p>
+    <p>航翼中队队歌</p>
+    <audio controls>
+        <source src="hangyisong.mp3" type="audio/mpeg">
+    </audio>
+    <h2>一脉剧社</h2>
+    <p>一脉剧社，寓意代际、师生、生生之间的精神传承</p>
+    <p><a href="./ymjs.html">一脉剧社</a></p>
+</body>
+</html>
