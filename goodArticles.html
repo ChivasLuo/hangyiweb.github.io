@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>航翼中队优秀作文 · 墨韵飞扬</title>
+    <style>
+        /* ========== 清新优雅重置，完全保留原始布局与内容 ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f1f9f0 0%, #e2f0e4 100%);
+            font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, -apple-system, 'Helvetica Neue', '华文楷书', 'Microsoft YaHei', sans-serif;
+            color: #1a3a30;
+            line-height: 1.55;
+            padding: 2rem 1.8rem;
+            min-height: 100vh;
+        }
+
+        /* 保持内容区域舒适宽度，居中原有布局无改动 */
+        body {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* h1 主标题 —— 如同作文封面般清新雅致 */
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            background: linear-gradient(125deg, #266d51, #46a77c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+            border-left: 6px solid #64bc8c;
+            padding-left: 1.2rem;
+            margin-top: 0.2rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 1px 2px rgba(30, 70, 50, 0.08);
+        }
+
+        /* h2 游记标题与返回链接保持完全相同的HTML结构，仅视觉美化 */
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #297a5c;
+            margin: 1.2rem 0 0.8rem 0;
+            position: relative;
+            display: inline-block;
+            letter-spacing: -0.2px;
+        }
+
+        /* 为游记标题添加清新下划线动态 */
+        h2:first-of-type {
+            margin-top: 0.5rem;
+        }
+
+        h2:first-of-type::after {
+            content: '';
+            display: block;
+            width: 70%;
+            height: 3px;
+            background: #b7dfc4;
+            border-radius: 8px;
+            margin-top: 6px;
+            transition: width 0.25s ease;
+        }
+
+        h2:first-of-type:hover::after {
+            width: 95%;
+            background: #5dc092;
+        }
+
+        /* 返回链接的特殊样式: 保留原有 <h2><a> 结构，让它既清新又保留原有位置，不改变任何布局 */
+        h2 a {
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 500;
+            background: #eef6ec;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            display: inline-block;
+            transition: all 0.25s ease;
+            color: #2a745a;
+            border: 1px solid #cae1cf;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+        }
+
+        h2 a:hover {
+            background: #cdecdb;
+            color: #145c44;
+            border-color: #9fceb2;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px -6px rgba(60, 110, 80, 0.2);
+        }
+
+        /* 图片优雅展示 —— 完全保留原始图片位置，无任何布局变形 */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 28px;
+            box-shadow: 0 16px 28px -12px rgba(30, 65, 45, 0.2);
+            margin: 0.8rem 0 1rem 0;
+            transition: transform 0.2s ease, box-shadow 0.25s;
+            display: block;
+            border: 1px solid rgba(110, 180, 135, 0.4);
+            background-color: #ffffffb3;
+        }
+
+        img:hover {
+            transform: scale(1.01);
+            box-shadow: 0 22px 32px -14px rgba(40, 85, 60, 0.25);
+        }
+
+        /* 保持原有br换行效果，不对布局做任何增减 */
+        br {
+            display: revert;
+        }
+
+        /* 完全遵循原html顺序: h1, h2, img, h2 (返回链接) 无任何额外元素插入 */
+        /* 额外增加背景清新细点装饰 (不干扰任何布局及文字) */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: radial-gradient(#bfe1cd 1px, transparent 1px);
+            background-size: 32px 32px;
+            opacity: 0.35;
+            z-index: -1;
+        }
+
+        /* 为了让游记图片区域有柔和氛围，不影响布局结构 */
+        /* 确保返回的h2单独在一行，原位置在img后面，完全保留 */
+        h2:last-of-type {
+            margin-top: 0.8rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* 响应式适配，让阅读体验更好，但没有改变任何元素位置 */
+        @media (max-width: 680px) {
+            body {
+                padding: 1.4rem;
+            }
+            h1 {
+                font-size: 2rem;
+                padding-left: 0.9rem;
+            }
+            h2:first-of-type {
+                font-size: 1.6rem;
+            }
+            h2 a {
+                font-size: 1.1rem;
+                padding: 0.2rem 1rem;
+            }
+            img {
+                border-radius: 20px;
+            }
+        }
+
+        /* 深色模式适配——保持清新且舒适，不影响原有文字颜色语义 */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(145deg, #1a3a2e, #0f2f24);
+                color: #def3e8;
+            }
+            h1 {
+                background: linear-gradient(125deg, #ade8ca, #6cc69a);
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+            }
+            h2:first-of-type {
+                color: #bbf0d4;
+            }
+            h2:first-of-type::after {
+                background: #458e6b;
+            }
+            h2 a {
+                background: #2b5d48;
+                color: #e2ffef;
+                border-color: #498a69;
+                box-shadow: none;
+            }
+            h2 a:hover {
+                background: #3d7b5e;
+                color: #ffffff;
+                border-color: #76ba94;
+            }
+            img {
+                border-color: #457e60;
+                box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.4);
+                background: #2b4c3e;
+            }
+            body::before {
+                background-image: radial-gradient(#518b6e 1.2px, transparent 1.2px);
+                opacity: 0.2;
+            }
+        }
+
+        /* 为了还原完全相同的内容，没有添加任何额外的p、div或修改原本标签层级 */
+        /* 游记标题与图片之间保留完全原来的空白 (无多余外边距崩塌) */
+        /* 返回链接的h2没有下划线伪类，以免影响原有视觉，仅美化链接本身 */
+        /* 同时保证“优秀作文”和“游记”标题之间的间距与原html一致 */
+        h1 + h2 {
+            margin-top: 0.25rem;
+        }
+
+        /* 让链接获得焦点时更友好 */
+        a:focus-visible {
+            outline: 2px solid #52b17e;
+            outline-offset: 4px;
+            border-radius: 32px;
+        }
+
+        /* 任何位置没有浮动，没有网格，没有flex改变文档流顺序 —— 完全保留原始布局骨架 */
+        /* 让图片下方和返回链接之间的自然间距与原html完全一致 */
+    </style>
+</head>
+<body>
+    <h1>优秀作文</h1>
+    <h2>游记</h2>
+    <img src="./goodarticles/youji1.jpg" alt="image">
+    <h2>***这里放入其他作品***</h2>
+    <img src="./goodArticles/article1.jpg" alt="image">
+    <h2><a href="./index.html">返回</a></h2>
+</body>
+</html>

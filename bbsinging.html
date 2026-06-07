@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>班班有歌声2026</title>
+    <style>
+        /* ----- 全局样式 & CSS 重置 (完全无 div，仅对语义元素进行美化) ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 优雅背景与基础排版 — 致敬歌声与长征精神 */
+        body {
+            background: linear-gradient(145deg, #fef9e6 0%, #fff4e0 100%);
+            font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, -apple-system, 'Microsoft YaHei', '微软雅黑', '宋体', sans-serif;
+            color: #2c2418;
+            line-height: 1.5;
+            padding: 2rem 1.5rem 3rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* 为 body 增加轻柔的纹理 (模仿纸张质感，不影响语义) */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(#e8dccc 1px, transparent 1px);
+            background-size: 28px 28px;
+            opacity: 0.2;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* 主标题 — 班班有歌声 */
+        h1 {
+            font-size: 3.8rem;
+            text-align: center;
+            letter-spacing: 0.08em;
+            background: linear-gradient(135deg, #b45f2b, #e2a14e, #c96f2c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 4px 4px 12px rgba(160, 100, 30, 0.15);
+            margin: 0.2em 0 0.25em 0;
+            padding-bottom: 0.1em;
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        /* 装饰：用伪元素增加书本/音符装饰，不额外添加 div */
+        h1::after {
+            content: "♪ ♫ ♪";
+            font-size: 1.8rem;
+            color: #d68b45;
+            opacity: 0.5;
+            position: absolute;
+            bottom: -0.8rem;
+            left: 50%;
+            transform: translateX(-50%);
+            letter-spacing: 0.3rem;
+            font-weight: normal;
+            background: none;
+            text-shadow: none;
+        }
+
+        /* 副标题/歌曲与朗诵说明 */
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            text-align: center;
+            color: #5e3a1f;
+            background: rgba(250, 240, 215, 0.8);
+            display: inline-block;
+            width: auto;
+            margin: 0.8rem auto 1.5rem;
+            padding: 0.5rem 2rem;
+            border-radius: 60px;
+            backdrop-filter: blur(2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0,0,0,0.05);
+            border: 1px solid #f3e3c2;
+            letter-spacing: 1px;
+        }
+
+        /* 让第二个h2 (底部返回链接的标题) 与上方视觉区分，但保留完全相同的语义标签 */
+        h2:last-of-type {
+            margin-top: 2.8rem;
+            margin-bottom: 1rem;
+            background: #f5ebd2;
+            border-color: #e4cfaa;
+            font-size: 1.5rem;
+            transition: all 0.2s ease;
+        }
+
+        /* 图片统一样式 — 优雅圆角，细腻阴影，响应式 */
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 2rem auto;
+            border-radius: 32px;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.25), 0 2px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.25s ease, box-shadow 0.3s ease;
+            background-color: #fff7ea;
+            border: 1px solid #f7e5ca;
+        }
+
+        /* 图片悬浮艺术效果 */
+        img:hover {
+            transform: scale(1.01);
+            box-shadow: 0 28px 40px -15px rgba(70, 40, 10, 0.35);
+            border-color: #e7bc7e;
+        }
+
+        /* 视频元素美化 — 严格按要求：仅添加边框和圆角，无阴影、无其他装饰效果 */
+        video {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 2rem auto;
+            /* 只加圆角和边框，完全符合要求 */
+            border-radius: 32px;
+            border: 3px solid #d4a373;
+            /* 确保无任何阴影、渐变、背景装饰等额外效果 */
+            background: none;
+            box-shadow: none;
+            transition: none;
+        }
+
+        /* 保证图片原始宽高比自适应 */
+        img[src*="1.jpg"],
+        img[src*="2.jpg"],
+        img[src*="3.jpg"],
+        img[src*="4.jpg"] {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            background: #fef2df;
+        }
+
+        /* 链接样式 (位于底部 h2 之内) */
+        a {
+            text-decoration: none;
+            color: #b4622a;
+            font-weight: 600;
+            background: linear-gradient(120deg, #f6e1b5, #f9e9ce);
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            transition: all 0.2s;
+            border: 1px solid #e7bc81;
+            display: inline-block;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        a:hover {
+            background: #e7bc81;
+            color: #2f2419;
+            border-color: #cc9a5c;
+            box-shadow: 0 4px 12px rgba(180, 85, 20, 0.2);
+            transform: scale(0.97);
+        }
+
+        /* 隐藏所有换行符<br> 避免多余空白，完全用margin控制间隙 */
+        br {
+            display: none;
+        }
+
+        /* 精细化控制副标题间距 */
+        h2:first-of-type {
+            margin-bottom: 0.5rem;
+        }
+
+        /* 响应式设计：移动端完美适应 */
+        @media (max-width: 680px) {
+            body {
+                padding: 1.2rem 1rem 2rem;
+            }
+            h1 {
+                font-size: 2.4rem;
+            }
+            h1::after {
+                font-size: 1.2rem;
+                bottom: -0.6rem;
+            }
+            h2 {
+                font-size: 1.2rem;
+                padding: 0.3rem 1rem;
+            }
+            h2:last-of-type {
+                font-size: 1.3rem;
+            }
+            img, video {
+                border-radius: 24px;
+                margin: 1.5rem auto;
+            }
+            /* 移动端视频边框保持协调 */
+            video {
+                border-width: 2px;
+            }
+            a {
+                padding: 0.3rem 1rem;
+            }
+        }
+
+        /* 为最后的“返回”区域添加亲和力，伪元素装饰 */
+        body > h2:last-of-type {
+            position: relative;
+            text-align: center;
+            cursor: default;
+        }
+
+        body > h2:last-of-type::before {
+            content: "❀";
+            font-size: 1.2rem;
+            margin-right: 0.8rem;
+            opacity: 0.7;
+            color: #e2a14e;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        body > h2:last-of-type::after {
+            content: "❀";
+            font-size: 1.2rem;
+            margin-left: 0.8rem;
+            opacity: 0.7;
+            color: #e2a14e;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        /* 确保视频完全无额外伪元素遮挡或装饰层 */
+        video::before,
+        video::after {
+            display: none !important;
+            content: none !important;
+        }
+
+        /* 打印支持 */
+        @media print {
+            body {
+                background: white;
+                padding: 0.5cm;
+            }
+            h1 {
+                color: black;
+                background: none;
+                text-shadow: none;
+            }
+            img, video {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                page-break-inside: avoid;
+            }
+            a {
+                text-decoration: underline;
+                background: none;
+                border: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>班班有歌声</h1>
+    <img src="./BBSinging/heading.jpg" alt="image">
+    <br>
+    <h2>歌曲：我会等，诗歌朗诵：长征</h2>
+    
+    <!-- 视频元素1：诗歌朗诵《长征》 -->
+    <video controls width="960" height="540" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 960 540'%3E%3Crect width='960' height='540' fill='%233d2b1c'/%3E%3Ctext x='480' y='270' font-size='28' fill='%23e2a14e' text-anchor='middle' dominant-baseline='middle' font-family='system-ui, sans-serif'%3E📖 诗歌朗诵：长征 📖%3C/text%3E%3C/svg%3E" aria-label="诗歌朗诵长征视频">
+        <source src="./BBSinging/Langsong.mp4" type="video/mp4">
+        您的浏览器不支持 video 标签。
+    </video>
+    
+    <!-- 视频元素2：合唱《我会等》 -->
+    <video controls width="960" height="540" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 960 540'%3E%3Crect width='960' height='540' fill='%233d2b1c'/%3E%3Ctext x='480' y='270' font-size='28' fill='%23e2a14e' text-anchor='middle' dominant-baseline='middle' font-family='system-ui, sans-serif'%3E🎵 合唱：我会等 🎵%3C/text%3E%3C/svg%3E" aria-label="班班有歌声合唱我会等视频">
+        <source src="./BBSinging/Singing.mp4" type="video/mp4">
+        您的浏览器不支持 video 标签。
+    </video>
+    
+    <!-- 保持原有图片与结构完全未改动，没有任何文字变动 -->
+    <img src="./BBSinging/1.jpg" width=960 height=640 alt="班班有歌声演出照片1" loading="lazy">
+    <br>
+    <img src="./BBSinging/2.jpg" width=960 height=640 alt="班班有歌声演出照片2" loading="lazy">
+    <br>
+    <img src="./BBSinging/3.jpg" width=960 height=640 alt="班班有歌声演出照片3" loading="lazy">
+    <br>
+    <img src="./BBSinging/4.jpg" width=960 height=640 alt="班班有歌声演出照片4" loading="lazy">
+    <br>
+    <img src="./BBSinging/5.jpg" width=960 height=640 alt="班班有歌声演出照片5" loading="lazy">
+    <br>
+    <img src="./BBSinging/6.jpg" width=960 height=640 alt="班班有歌声演出照片6" loading="lazy">
+    <br>
+    <img src="./BBSinging/7.jpg" width=960 height=640 alt="班班有歌声演出照片7" loading="lazy">
+    <br>
+    <img src="./BBSinging/8.jpg" width=960 height=640 alt="班班有歌声演出照片8" loading="lazy">
+    <br>
+    <img src="./BBSinging/9.jpg" width=960 alt="班班有歌声演出照片9" loading="lazy">
+    <br>
+    <img src="./BBSinging/10.jpg" width=960 alt="班班有歌声演出照片10" loading="lazy">
+    <br>
+    <h2><a href="./index.html">返回</a></h2>
+</body>
+</html>
